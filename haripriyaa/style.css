@@ -1,0 +1,763 @@
+/* ===================================
+   GOOGLE FONT
+=================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===================================
+   RESET
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ===================================
+   BODY
+=================================== */
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#5b21b6,#2563eb);
+
+    overflow:hidden;
+
+    padding:20px;
+
+}
+
+/* Background Circles */
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    background:rgba(255,255,255,.12);
+
+    border-radius:50%;
+
+    top:-120px;
+
+    left:-120px;
+
+    filter:blur(60px);
+
+}
+
+body::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:380px;
+
+    height:380px;
+
+    background:rgba(255,255,255,.10);
+
+    border-radius:50%;
+
+    bottom:-120px;
+
+    right:-100px;
+
+    filter:blur(60px);
+
+}
+
+/* ===================================
+   CONTAINER
+=================================== */
+
+.container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:10;
+
+}
+
+/* ===================================
+   CARD
+=================================== */
+
+.card{
+
+    width:430px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:30px;
+
+    padding:35px;
+
+    color:#fff;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+    overflow:hidden;
+
+    position:relative;
+
+    transition:.4s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+/* Glass Shine */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:140px;
+
+    height:550px;
+
+    background:rgba(255,255,255,.08);
+
+    transform:rotate(35deg);
+
+    left:-220px;
+
+    top:-120px;
+
+    transition:.8s;
+
+}
+
+.card:hover::before{
+
+    left:550px;
+
+}
+
+/* ===================================
+   TITLE
+=================================== */
+
+.card h1{
+
+    text-align:center;
+
+    font-size:32px;
+
+    font-weight:600;
+
+    margin-bottom:30px;
+
+    letter-spacing:1px;
+
+}
+
+/* ===================================
+   SEARCH
+=================================== */
+
+.search{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.search input{
+
+    flex:1;
+
+    padding:15px 20px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    color:#333;
+
+    background:#fff;
+
+}
+
+.search input::placeholder{
+
+    color:#777;
+
+}
+
+.search input:focus{
+
+    box-shadow:0 0 15px rgba(255,255,255,.35);
+
+}
+
+/* Search Button */
+
+.search button{
+
+    width:58px;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#ffffff;
+
+    color:#5b21b6;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.search button:hover{
+
+    background:#5b21b6;
+
+    color:#fff;
+
+    transform:rotate(360deg);
+
+}
+
+/* ===================================
+   LOADING
+=================================== */
+
+.loading{
+
+    display:none;
+
+    text-align:center;
+
+    margin-top:20px;
+
+    font-size:17px;
+
+}
+
+/* ===================================
+   ERROR
+=================================== */
+
+.error{
+
+    display:none;
+
+    margin-top:20px;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    background:#ef4444;
+
+    color:#fff;
+
+}
+
+/* ===================================
+   WEATHER
+=================================== */
+
+.weather{
+
+    display:none;
+
+    text-align:center;
+
+    margin-top:30px;
+
+    animation:fade .6s;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===================================
+   WEATHER ICON
+=================================== */
+
+.weather-icon{
+
+    width:150px;
+
+    height:150px;
+
+    display:block;
+
+    margin:15px auto;
+
+}
+
+/* ===================================
+   TEMPERATURE
+=================================== */
+
+#temperature{
+
+    font-size:68px;
+
+    font-weight:700;
+
+    margin-top:10px;
+
+}
+
+/* ===================================
+   CITY
+=================================== */
+
+#city{
+
+    font-size:34px;
+
+    margin-top:5px;
+
+}
+
+/* ===================================
+   DESCRIPTION
+=================================== */
+
+#description{
+
+    margin-top:10px;
+
+    font-size:18px;
+
+    text-transform:capitalize;
+
+    color:#f3f3f3;
+
+}
+/* ===================================
+   WEATHER DETAILS
+=================================== */
+
+.details{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.box{
+
+    flex:1;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:rgba(255,255,255,.12);
+
+    padding:18px;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    transition:.3s;
+
+}
+
+.box:hover{
+
+    transform:translateY(-5px);
+
+    background:rgba(255,255,255,.22);
+
+}
+
+.box i{
+
+    font-size:32px;
+
+    color:#ffe082;
+
+}
+
+.box h4{
+
+    font-size:15px;
+
+    font-weight:500;
+
+    color:#f8f8f8;
+
+}
+
+.box span{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+/* ===================================
+   EXTRA DETAILS
+=================================== */
+
+.extra{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.extra div{
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.extra div:hover{
+
+    background:rgba(255,255,255,.22);
+
+    transform:scale(1.05);
+
+}
+
+.extra h5{
+
+    font-size:14px;
+
+    font-weight:500;
+
+    margin-bottom:8px;
+
+    color:#f1f1f1;
+
+}
+
+.extra p{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#fff;
+
+}
+
+/* ===================================
+   INPUT PLACEHOLDER
+=================================== */
+
+.search input::placeholder{
+
+    color:#888;
+
+}
+
+/* ===================================
+   BUTTON CLICK
+=================================== */
+
+.search button:active{
+
+    transform:scale(.90);
+
+}
+
+/* ===================================
+   SCROLLBAR
+=================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#dddddd;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#5b21b6;
+
+    border-radius:20px;
+
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media(max-width:768px){
+
+.card{
+
+    width:100%;
+
+    padding:25px;
+
+}
+
+.card h1{
+
+    font-size:28px;
+
+}
+
+.weather-icon{
+
+    width:120px;
+
+    height:120px;
+
+}
+
+#temperature{
+
+    font-size:55px;
+
+}
+
+#city{
+
+    font-size:28px;
+
+}
+
+.details{
+
+    flex-direction:column;
+
+}
+
+.extra{
+
+    grid-template-columns:1fr;
+
+}
+
+.search input{
+
+    font-size:15px;
+
+}
+
+.search button{
+
+    width:55px;
+
+    height:55px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.card{
+
+    padding:20px;
+
+}
+
+.card h1{
+
+    font-size:24px;
+
+}
+
+.weather-icon{
+
+    width:100px;
+
+    height:100px;
+
+}
+
+#temperature{
+
+    font-size:46px;
+
+}
+
+#city{
+
+    font-size:24px;
+
+}
+
+.box{
+
+    padding:15px;
+
+}
+
+.extra div{
+
+    padding:15px;
+
+}
+
+}
+
+/* ===================================
+   SMOOTH EFFECTS
+=================================== */
+
+.card,
+.box,
+.extra div,
+.search input,
+.search button{
+
+    transition:all .35s ease;
+
+}
+
+/* ===================================
+   ICON ANIMATION
+=================================== */
+
+.weather-icon{
+
+    animation:floatIcon 3s ease-in-out infinite;
+
+}
+
+@keyframes floatIcon{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===================================
+   TEMPERATURE GLOW
+=================================== */
+
+#temperature{
+
+    text-shadow:0 0 18px rgba(255,255,255,.35);
+
+}
+
+/* ===================================
+   CARD SHADOW
+=================================== */
+
+.card{
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.20),
+    0 0 30px rgba(91,33,182,.25);
+
+}
+
+/* ===================================
+   END
+=================================== */
